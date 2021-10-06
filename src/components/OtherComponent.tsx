@@ -1,5 +1,7 @@
+import { FullScreen } from "../styles/Screen";
+
 function OtherComponent() {
-  return <>Other</>;
+  return <FullScreen />;
 }
 
 export default OtherComponent;
