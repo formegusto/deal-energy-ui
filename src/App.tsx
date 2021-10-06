@@ -3,6 +3,7 @@ import MainComponent from "./components/MainComponent";
 import HeaderComponent from "./components/common/HeaderComponent";
 import OtherComponent from "./components/OtherComponent";
 import { FullScreen } from "./styles/Screen";
+import Loading from "./components/common/Loading";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route component={OtherComponent} />
         </Switch>
       </FullScreen>
+      {/* <Loading /> */}
     </>
   );
 }

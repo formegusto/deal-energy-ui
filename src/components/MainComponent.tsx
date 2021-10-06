@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { GREEN_PALETTE } from "../styles/Palette";
+import Button from "./common/Button";
 
 type Props = {
   idx: number;
@@ -8,8 +9,8 @@ type Props = {
 function ItemComponent({ idx }: Props) {
   return (
     <ItemBlock>
-      <CheckBox name={`check-${idx}`} type="checkbox" />
-      <Title>가구-{idx}</Title>
+      <CheckBox id={`check-${idx}`} name={`check-${idx}`} type="checkbox" />
+      <Title htmlFor={`check-${idx}`}>가구-{idx}</Title>
     </ItemBlock>
   );
 }
@@ -50,7 +51,7 @@ const CheckBox = styled.input`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.label`
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -89,6 +90,7 @@ function MainComponent() {
   return (
     <Block>
       <ListComponent />
+      <Button>확인</Button>
     </Block>
   );
 }
@@ -96,6 +98,14 @@ function MainComponent() {
 const Block = styled.div`
   width: 100%;
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > button {
+    margin: 32px 0 0;
+  }
 `;
 
 export default MainComponent;
