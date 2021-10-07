@@ -86,11 +86,15 @@ const ListBlock = styled.div`
   overflow-x: scroll;
 `;
 
-function MainComponent() {
+type MainProps = {
+  loadingTest: () => void;
+};
+
+function MainComponent({ loadingTest }: MainProps) {
   return (
     <Block>
       <ListComponent />
-      <Button>확인</Button>
+      <Button onClick={loadingTest}>확인</Button>
     </Block>
   );
 }
