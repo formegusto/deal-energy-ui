@@ -1,17 +1,34 @@
 import React from "react";
-import styled, { StyledComponentPropsWithRef } from "styled-components";
+import styled, { css, StyledComponentPropsWithRef } from "styled-components";
 
-interface BasicProps extends StyledComponentPropsWithRef<"button"> {}
+type StyleProps = {
+  colorType?: "dark" | "light";
+};
+
+interface BasicProps
+  extends StyledComponentPropsWithRef<"button">,
+    StyleProps {}
 
 function Button({ children, ...buttonProps }: BasicProps) {
   return <DefaultButton {...buttonProps}>{children}</DefaultButton>;
 }
 
-const DefaultButton = styled.button`
+const DefaultButton = styled.button<StyleProps>`
   width: 150px;
   height: 64px;
 
-  background-color: rgba(96, 128, 40, 1);
+  ${(props) =>
+    props.colorType
+      ? props.colorType === "dark"
+        ? css`
+            background-color: rgba(33, 72, 45, 1);
+          `
+        : css`
+            background-color: rgba(96, 128, 40, 1);
+          `
+      : css`
+          background-color: rgba(96, 128, 40, 1);
+        `};
   border-radius: 8px;
 
   font-style: normal;
@@ -26,7 +43,18 @@ const DefaultButton = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background-color: rgba(96, 128, 40, 0.75);
+    ${(props) =>
+      props.colorType
+        ? props.colorType === "dark"
+          ? css`
+              background-color: rgba(33, 72, 45, 0.75);
+            `
+          : css`
+              background-color: rgba(96, 128, 40, 0.75);
+            `
+        : css`
+            background-color: rgba(96, 128, 40, 0.75);
+          `};
   }
 `;
 
