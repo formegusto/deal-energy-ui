@@ -2,7 +2,7 @@
   "name": "deal-energy",
   "version": "0.1.0",
   "private": true,
-  "main": "public/Main.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
